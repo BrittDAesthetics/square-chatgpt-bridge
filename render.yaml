@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: square-chatgpt-bridge
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: SQUARE_ACCESS_TOKEN
+        sync: false
+      - key: SQUARE_LOCATION_ID
+        sync: false
+      - key: SQUARE_APPLICATION_ID
+        sync: false
+      - key: SQUARE_ENVIRONMENT
+        value: production
+      - key: BRIDGE_API_KEY
+        sync: false
